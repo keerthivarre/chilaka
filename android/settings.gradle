@@ -1,0 +1,4 @@
+rootProject.name = 'kidsapp2'
+
+include ':RNAudioPlayer', ':app'
+project(':RNAudioPlayer').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-audio-manager/android')
