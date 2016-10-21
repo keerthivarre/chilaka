@@ -27,19 +27,22 @@ module.exports = React.createClass({
   },
   render: function(){
     return <View style = {styles.container}>
-    <Text style = {styles.text}> Tiger  </Text>
+    <TouchableHighlight onPress={this.onPress}>
+
+    <Text style={styles.text}>Next--></Text>
+    </TouchableHighlight>
     <View style ={styles.imgwrapper1}>
-    <TouchableHighlight onPress={ () => this.playRecording('lion')}>
+    <TouchableHighlight onPress={ () => this.playRecording('sheep')}>
       <Image
         style={styles.imgwrapper}
-        source={require('./img/lion1.jpg')}
+        source={require('./img/sheep.jpg')}
       />
 
     </TouchableHighlight>
-    <TouchableHighlight onPress={() => this.playRecording('lion')}>
+    <TouchableHighlight onPress={() => this.playRecording('goat')}>
       <Image
         style={styles.imgwrapper}
-        source={require('./img/lion1.jpg')}
+        source={require('./img/goat.jpg')}
       />
 
 
@@ -47,29 +50,39 @@ module.exports = React.createClass({
     </View>
 
     <View style ={styles.imgwrapper2}>
-    <TouchableHighlight onPress={this.onPress}>
+    <TouchableHighlight onPress={() => this.playRecording('rabbit')}>
       <Image
         style={styles.imgwrapper}
-        source={require('./img/lion1.jpg')}
+        source={require('./img/rabbit.jpg')}
       />
 
 
     </TouchableHighlight>
+    <TouchableHighlight onPress={() => this.playRecording('monkey')}>
+      <Image
+        style={styles.imgwrapper}
+        source={require('./img/monkey.jpg')}
+      />
+      </TouchableHighlight>
+
 
     </View>
+
+
+
     </View>
+
   },
   onPress : function() {
   //log the user in
   this.props.navigator.push({name: 'addvoice'});
 },
 
-
 playRecording: function(animal){
   // AudioRecorder.playRecording();
    AudioPlayer.play(AudioUtils.DocumentDirectoryPath+'/'+animal+'.aac');
-  console.log('horse');
-}
+  console.log('lion');
+},
 
 
 
@@ -79,25 +92,26 @@ playRecording: function(animal){
 var styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'flex-end'
+
   },
   text: {
-    flex: 2,
-    textAlign: 'center',
     fontFamily: 'copperplate',
     fontWeight: 'bold',
-    fontSize: 30,
+    fontSize: 20,
     color: 'green',
-    marginTop: 100
+    marginTop: 100,
   },
   imgwrapper1: {
-    flex: 2,
+    flex: 1,
     flexDirection: 'row',// takes 5/8ths of available space
   justifyContent: 'space-around',
   alignItems: 'center',
 
+
 },
 imgwrapper2: {
-  flex: 2,
+  flex: 1,
   flexDirection: 'row',// takes 5/8ths of available space
 justifyContent: 'space-around',
 alignItems: 'center',

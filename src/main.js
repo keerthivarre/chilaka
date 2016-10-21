@@ -7,14 +7,21 @@ var {
   Navigator
 } = require('react-native');
 
-var Start = require('/Users/sdutta/ReactApps/kidsapp2/src/app/startpage');
-var Second = require('/Users/sdutta/ReactApps/kidsapp2/src/app/second');
-var Third = require('/Users/sdutta/ReactApps/kidsapp2/src/app/third.js');
+
+var Start = require('./app/startpage.js');
+var Second = require('./app/second.js');
+var Third = require('./app/third.js');
+var addvoice = require('./app/addvoice.js');
+var training = require('./app/training.js');
+
+
 
 var ROUTES = {
   start: Start,
   second: Second,
-  third: Third
+  third: Third,
+  addvoice: addvoice,
+  training: training
 };
 
 module.exports = React.createClass({
@@ -26,6 +33,7 @@ module.exports = React.createClass({
 
 
   render: function() {
+
     return (
       <Navigator
       style = {styles.container}

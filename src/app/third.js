@@ -18,7 +18,7 @@ module.exports = React.createClass({
     <TouchableHighlight onPress={this.onPress}>
       <Image
         style={styles.imgwrapper}
-        source={require('/Users/sdutta/ReactApps/kidsapp2/src/app/img/lion1.jpg')}
+        source={require('./img/lion1.jpg')}
       />
 
 
@@ -26,7 +26,7 @@ module.exports = React.createClass({
     <TouchableHighlight onPress={this.onPress}>
       <Image
         style={styles.imgwrapper}
-        source={require('/Users/sdutta/ReactApps/kidsapp2/src/app/img/lion1.jpg')}
+        source={require('./img/lion1.jpg')}
       />
 
 
@@ -37,7 +37,7 @@ module.exports = React.createClass({
     <TouchableHighlight onPress={this.onPress}>
       <Image
         style={styles.imgwrapper}
-        source={require('/Users/sdutta/ReactApps/kidsapp2/src/app/img/lion1.jpg')}
+        source={require('./img/lion1.jpg')}
       />
 
 
