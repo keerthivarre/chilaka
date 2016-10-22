@@ -27,8 +27,13 @@ module.exports = React.createClass({
   },
   render: function(){
     return <View style = {styles.container}>
+    <TouchableHighlight onPress={this.gotoHomepage}>
+
+    <Text style={styles.text}>Back</Text>
+    </TouchableHighlight>
 
     <View style ={styles.imgwrapper2}>
+
     <TouchableHighlight onPress={this.onPress}>
       <Image
         source={require('./img/lion1.jpg')}
@@ -52,6 +57,10 @@ module.exports = React.createClass({
     </View>
     <TouchableHighlight onPress={this.onPress}>
 
+    <Text style={styles.button}>save</Text>
+    </TouchableHighlight>
+    <TouchableHighlight onPress={this.onPress}>
+
     <Text style={styles.text}>Next--></Text>
     </TouchableHighlight>
     </View>
@@ -61,6 +70,11 @@ module.exports = React.createClass({
   //log the user in
   this.props.navigator.push({name: 'training'});
 },
+gotoHomepage : function() {
+//log the user in
+this.props.navigator.push({name: 'homepage'});
+},
+
 
 playRecording1: function(){
   // AudioRecorder.playRecording();
@@ -81,13 +95,14 @@ playRecording2: function(){
 var styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'flex-end'
   },
   text: {
     flex: 1,
     textAlign: 'center',
     fontFamily: 'copperplate',
     fontWeight: 'bold',
-    fontSize: 30,
+    fontSize: 20,
     color: 'green',
     marginTop: 100
   },

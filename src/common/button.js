@@ -35,6 +35,8 @@ var styles= StyleSheet.create({
   buttonText: {
     flex: 1,
     alignSelf: 'center',
-    fontSize: 17
+    fontSize: 17,
+    color: 'white',
+    fontFamily: 'copperplate'
   }
 });

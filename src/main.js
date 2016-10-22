@@ -13,6 +13,12 @@ var Second = require('./app/second.js');
 var Third = require('./app/third.js');
 var addvoice = require('./app/addvoice.js');
 var training = require('./app/training.js');
+var training2 = require('./app/training2.js');
+var homepage = require('./app/homepage.js');
+var test = require('./app/test.js');
+
+
+
 
 
 
@@ -21,7 +27,12 @@ var ROUTES = {
   second: Second,
   third: Third,
   addvoice: addvoice,
-  training: training
+  training: training,
+  training2: training2,
+  homepage: homepage,
+  test: test
+
+
 };
 
 module.exports = React.createClass({
@@ -37,7 +48,7 @@ module.exports = React.createClass({
     return (
       <Navigator
       style = {styles.container}
-      initialRoute ={{name : 'start'}}
+      initialRoute ={{name : 'homepage'}}
       renderScene = {this.renderScene}
       configureScene = {() => {return Navigator.SceneConfigs.FloatFromRight;}}
       />

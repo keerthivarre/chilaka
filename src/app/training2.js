@@ -29,17 +29,17 @@ module.exports = React.createClass({
     return <View style = {styles.container}>
     <TouchableHighlight onPress={this.gotoHomepage}>
 
-    <Text style={styles.text}>Back</Text>
+    <Text style= {styles.back}>Back</Text>
     </TouchableHighlight>
     <TouchableHighlight onPress={this.onPress}>
 
-    <Text style={styles.text}>Next--></Text>
+    <Text style={styles.next}>Next--></Text>
     </TouchableHighlight>
     <View style ={styles.imgwrapper1}>
-    <TouchableHighlight onPress={ () => this.playRecording('sheep')}>
+    <TouchableHighlight onPress={ () => this.playRecording('elephant')}>
       <Image
         style={styles.imgwrapper}
-        source={require('./img/sheep.jpg')}
+        source={require('./img/elephant.jpg')}
       />
 
     </TouchableHighlight>
@@ -79,7 +79,7 @@ module.exports = React.createClass({
   },
   onPress : function() {
   //log the user in
-  this.props.navigator.push({name: 'training2'});
+  this.props.navigator.push({name: 'training'});
 },
 gotoHomepage : function() {
 //log the user in
@@ -100,8 +100,15 @@ playRecording: function(animal){
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end'
 
+  },
+  back:{
+    justifyContent: 'flex-start',
+    color: 'blue'
+  },
+  next: {
+    justifyContent: 'flex-end',
+    color: 'blue'
   },
   text: {
     fontFamily: 'copperplate',

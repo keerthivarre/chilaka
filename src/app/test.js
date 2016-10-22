@@ -27,9 +27,9 @@ module.exports = React.createClass({
   },
   render: function(){
     return <View style = {styles.container}>
-    <TouchableHighlight onPress={this.gotoHomepage}>
+    <TouchableHighlight onPress ={() => this.playRecording('monkey')}>
 
-    <Text style={styles.text}>Back</Text>
+    <Image source = {require('./img/forest.jpg')} style ={styles.image}></Image>
     </TouchableHighlight>
     <TouchableHighlight onPress={this.onPress}>
 
@@ -100,8 +100,15 @@ playRecording: function(animal){
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+    width: null,
+    height: null
 
+  },
+  image : {
+    width: 100,
+    height: 100,
+    alignSelf: 'center'
   },
   text: {
     fontFamily: 'copperplate',
