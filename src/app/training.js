@@ -8,6 +8,7 @@ var {
   Image
 } = require('react-native');
 import {AudioRecorder,AudioPlayer, AudioUtils} from 'react-native-audio';
+// import autoBind from 'react-autobind';
 
 var Button = require('../common/button');
 
@@ -21,11 +22,18 @@ module.exports = React.createClass({
   //     AudioEncodingBitRate: 32000
   //   });
   // },
+// construct(){ self(); this.playRecording = this.playRecording.bind(this); },
+
   componentDidMount : function(){
 
       // this.prepareRecordingPath(audioPath);
   },
+
+  renderAnimals: function(){
+
+  },
   render: function(){
+    let animals = ['monkey','rabbit','sheep'];
     return <View style = {styles.container}>
     <TouchableHighlight onPress={this.gotoHomepage}>
 
@@ -35,42 +43,36 @@ module.exports = React.createClass({
 
     <Text style={styles.text}>Next--></Text>
     </TouchableHighlight>
-    <View style ={styles.imgwrapper1}>
-    <TouchableHighlight onPress={ () => this.playRecording('sheep')}>
+
+    <TouchableHighlight onPress={ () => this.playRecording('rabbit')}>
       <Image
-        style={styles.imgwrapper}
-        source={require('./img/sheep.jpg')}
-      />
+        source={require('./img/rabbit.jpg')}>
+        </Image>
 
     </TouchableHighlight>
-    <TouchableHighlight onPress={() => this.playRecording('goat')}>
-      <Image
-        style={styles.imgwrapper}
-        source={require('./img/goat.jpg')}
-      />
 
 
-    </TouchableHighlight>
-    </View>
-
-    <View style ={styles.imgwrapper2}>
-    <TouchableHighlight onPress={() => this.playRecording('rabbit')}>
-      <Image
-        style={styles.imgwrapper}
-        source={require('./img/rabbit.jpg')}
-      />
 
 
-    </TouchableHighlight>
-    <TouchableHighlight onPress={() => this.playRecording('monkey')}>
-      <Image
-        style={styles.imgwrapper}
-        source={require('./img/monkey.jpg')}
-      />
+    {animals.map(function(animal, index){
+
+      let animalPath = './img/'+animal+'.jpg'
+      return(
+      <TouchableHighlight key={index} onPress={ () => this.playRecording(animal).bind(this)}>
+        <Image  style={{width: 150, height: 150}}
+           source={{uri:'https://upload.wikimedia.org/wikipedia/commons/3/3b/Rabbit_in_montana.jpg'}}>
+
+
+          </Image>
+
       </TouchableHighlight>
+    );
+
+    })
+  }
 
 
-    </View>
+
 
 
 
@@ -90,7 +92,8 @@ playRecording: function(animal){
   // AudioRecorder.playRecording();
    AudioPlayer.play(AudioUtils.DocumentDirectoryPath+'/'+animal+'.aac');
   console.log('lion');
-},
+}
+
 
 
 
@@ -100,7 +103,6 @@ playRecording: function(animal){
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end'
 
   },
   text: {
@@ -108,22 +110,13 @@ var styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     color: 'green',
-    marginTop: 100,
+    marginTop: 50,
   },
-  imgwrapper1: {
-    flex: 1,
-    flexDirection: 'row',// takes 5/8ths of available space
-  justifyContent: 'space-around',
-  alignItems: 'center',
-
-
-},
-imgwrapper2: {
-  flex: 1,
-  flexDirection: 'row',// takes 5/8ths of available space
-justifyContent: 'space-around',
-alignItems: 'center',
-
-}
-
+//   imgwrapper: {
+//     flexDirection: 'row',// takes 5/8ths of available space
+//   justifyContent: 'space-around',
+//   alignItems: 'center',
+//
+//
+// }
 });

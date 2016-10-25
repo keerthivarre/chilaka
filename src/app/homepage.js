@@ -12,7 +12,7 @@ var {
 } = require('react-native');
 
 var Button = require('../common/button');
-const { BlurView, VibrancyView } = require('react-native-blur');
+// const { BlurView, VibrancyView } = require('react-native-blur');
 var audioPath = AudioUtils.DocumentDirectoryPath+'/wrong.aac';
 import {AudioRecorder,AudioPlayer, AudioUtils} from 'react-native-audio';
 // var { AudioPlayer } = require('react-native').NativeModules;

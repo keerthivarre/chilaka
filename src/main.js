@@ -30,7 +30,7 @@ var ROUTES = {
   training: training,
   training2: training2,
   homepage: homepage,
-  test: test
+  test: test,
 
 
 };

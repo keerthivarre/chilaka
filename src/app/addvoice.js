@@ -7,23 +7,28 @@ var {
   TouchableHighlight,
   Image
 } = require('react-native');
+var audioPath = AudioUtils.DocumentDirectoryPath+'/right.aac';
+
 import {AudioRecorder,AudioPlayer, AudioUtils} from 'react-native-audio';
 
 // var Button = require('../common/button');
 
 module.exports = React.createClass({
-  // prepareRecordingPath(audioPath){
-  //   AudioRecorder.prepareRecordingAtPath(audioPath, {
-  //     SampleRate: 22050,
-  //     Channels: 1,
-  //     AudioQuality: "Low",
-  //     AudioEncoding: "aac",
-  //     AudioEncodingBitRate: 32000
-  //   });
-  // },
-  componentDidMount : function(){
+  prepareRecordingPath(audioPath){
+    AudioRecorder.prepareRecordingAtPath(audioPath, {
+      SampleRate: 22050,
+      Channels: 1,
+      AudioQuality: "Low",
+      AudioEncoding: "aac",
+      AudioEncodingBitRate: 32000
+    });
+  },
+  startPress : function(){
 
-      // this.prepareRecordingPath(audioPath);
+      this.prepareRecordingPath(audioPath);
+      AudioRecorder.startRecording();
+
+
   },
   render: function(){
     return <View style = {styles.container}>
@@ -42,20 +47,20 @@ module.exports = React.createClass({
 
     </TouchableHighlight>
     <View style = {styles.buttonwrapper}>
-    <TouchableHighlight onPress={this.onPress}>
+    <TouchableHighlight onPress={this.startPress}>
 
     <Text style={styles.button}>start</Text>
     </TouchableHighlight>
-    <TouchableHighlight onPress={this.onPress}>
+    <TouchableHighlight onPress={this.stopRecording}>
 
     <Text style={styles.button}>stop</Text>
     </TouchableHighlight>
-    <TouchableHighlight onPress={this.onPress}>
+    <TouchableHighlight onPress={this.playRecording}>
 
     <Text style={styles.button}>play</Text>
     </TouchableHighlight>
     </View>
-    <TouchableHighlight onPress={this.onPress}>
+    <TouchableHighlight onPress={this.playRecording}>
 
     <Text style={styles.button}>save</Text>
     </TouchableHighlight>
@@ -74,7 +79,16 @@ gotoHomepage : function() {
 //log the user in
 this.props.navigator.push({name: 'homepage'});
 },
+stopRecording: function(){
+  console.log("In stop recording");
+  AudioRecorder.stopRecording();
+},
 
+playRecording: function(){
+  // AudioRecorder.playRecording();
+  AudioPlayer.play(audioPath);
+  console.log(audioPath);
+},
 
 playRecording1: function(){
   // AudioRecorder.playRecording();
