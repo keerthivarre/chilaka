@@ -11,6 +11,8 @@ import {AudioRecorder,AudioPlayer, AudioUtils} from 'react-native-audio';
 // import autoBind from 'react-autobind';
 
 var Button = require('../common/button');
+var Animal = require('./animalDisplay');
+
 
 module.exports = React.createClass({
   // prepareRecordingPath(audioPath){
@@ -29,9 +31,6 @@ module.exports = React.createClass({
       // this.prepareRecordingPath(audioPath);
   },
 
-  renderAnimals: function(){
-
-  },
   render: function(){
     let animals = ['monkey','rabbit','sheep'];
     return <View style = {styles.container}>
@@ -44,29 +43,12 @@ module.exports = React.createClass({
     <Text style={styles.text}>Next--></Text>
     </TouchableHighlight>
 
-    <TouchableHighlight onPress={ () => this.playRecording('rabbit')}>
-      <Image
-        source={require('./img/rabbit.jpg')}>
-        </Image>
-
-    </TouchableHighlight>
-
 
 
 
     {animals.map(function(animal, index){
 
-      let animalPath = './img/'+animal+'.jpg'
-      return(
-      <TouchableHighlight key={index} onPress={ () => this.playRecording(animal).bind(this)}>
-        <Image  style={{width: 150, height: 150}}
-           source={{uri:'https://upload.wikimedia.org/wikipedia/commons/3/3b/Rabbit_in_montana.jpg'}}>
-
-
-          </Image>
-
-      </TouchableHighlight>
-    );
+        return <Animal name={animal} index={index}/>
 
     })
   }
