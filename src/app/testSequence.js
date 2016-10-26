@@ -7,15 +7,11 @@ var {
   TouchableHighlight,
   Image
 } = require('react-native');
-import Swiper from 'react-native-swiper';
-
 import {AudioRecorder,AudioPlayer, AudioUtils} from 'react-native-audio';
 // import autoBind from 'react-autobind';
 
 var Button = require('../common/button');
-var Swipe = require('./swiper');
 var Animal = require('./animalDisplay');
-
 
 
 module.exports = React.createClass({
@@ -36,11 +32,13 @@ module.exports = React.createClass({
   },
 
   render: function(){
-    let animals = ['monkey','rabbit','sheep'];
-    return <Image source = {require('./img/forest.jpg')} style ={styles.container}>
-    <Swiper showsButtons={true}>
-    <View style={styles.slide1}>
 
+    let animals = ['monkey','rabbit','sheep','elephant'];
+    return <View style = {styles.container}>
+    <TouchableHighlight onPress ={() => this.playRecording('monkey')}>
+
+    <Image source = {require('./img/forest.jpg')} style ={styles.image}></Image>
+    </TouchableHighlight>
     <TouchableHighlight onPress={this.gotoHomepage}>
 
     <Text style={styles.text}>Back</Text>
@@ -63,33 +61,13 @@ module.exports = React.createClass({
   }
   </View>
 
-  </View>
-  <View style={styles.slide2}>
-
-  <TouchableHighlight onPress={this.gotoHomepage}>
-
-  <Text style={styles.text}>Back</Text>
-  </TouchableHighlight>
-  <TouchableHighlight onPress={this.onPress}>
-
-  <Text style={styles.Next}>Next--></Text>
-  </TouchableHighlight>
 
 
 
-  <View  style={styles.imgwrapper}>
 
-  {animals.map(function(animal, index){
 
-      return <Animal name={animal} index={index}/>
 
-  })
-
-}
-</View>
-</View>
-  </Swiper>
-  </Image>
+    </View>
 
   },
   onPress : function() {
@@ -105,6 +83,14 @@ playRecording: function(animal){
   // AudioRecorder.playRecording();
    AudioPlayer.play(AudioUtils.DocumentDirectoryPath+'/'+animal+'.aac');
   console.log('lion');
+},
+testCheck: function() {
+
+// if({this.playRecording(animal} == {animal+'.jpg'}) {
+//
+//   this.props.navigator.push({name: 'homepage'});
+//
+// }
 }
 
 
@@ -118,7 +104,6 @@ var styles = StyleSheet.create({
     flex: 1,
     width: null,
     height:null,
-    justifyContent: 'center'
 
 
   },
@@ -127,7 +112,7 @@ var styles = StyleSheet.create({
     fontFamily: 'copperplate',
     fontWeight: 'bold',
     fontSize: 20,
-    color: 'white',
+    color: 'green',
     marginTop: 50,
     textAlign: 'left',
   },
@@ -135,15 +120,20 @@ var styles = StyleSheet.create({
     fontFamily: 'copperplate',
     fontWeight: 'bold',
     fontSize: 20,
-    color: 'white',
+    color: 'green',
     // marginTop: 50,
     textAlign: 'right',
+  },
+  image : {
+    width: 100,
+    height: 100,
+    alignSelf: 'center'
   },
   imgwrapper: {
     flex:1,
     flexDirection: 'row',// takes 5/8ths of available space
   justifyContent: 'space-around',
-  justifyContent: 'space-between',
+  // justifyContent: 'space-between',
 
   alignItems: 'center',
   flexWrap: 'wrap',

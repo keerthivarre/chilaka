@@ -8,6 +8,8 @@ var {
   Image
 } = require('react-native');
 var audioPath = AudioUtils.DocumentDirectoryPath+'/right.aac';
+var Button = require('../common/button');
+
 
 import {AudioRecorder,AudioPlayer, AudioUtils} from 'react-native-audio';
 
@@ -31,7 +33,7 @@ module.exports = React.createClass({
 
   },
   render: function(){
-    return <View style = {styles.container}>
+    return <Image source = {require('./img/forest.jpg')} style ={styles.container}>
     <TouchableHighlight onPress={this.gotoHomepage}>
 
     <Text style={styles.text}>Back</Text>
@@ -41,36 +43,23 @@ module.exports = React.createClass({
 
     <TouchableHighlight onPress={this.onPress}>
       <Image
-        source={require('./img/lion1.jpg')}
+        source={require('./img/elephant.jpg')}
       />
-
-
-    </TouchableHighlight>
+  </TouchableHighlight>
     <View style = {styles.buttonwrapper}>
-    <TouchableHighlight onPress={this.startPress}>
+    <Button text={'Start'} onPress={this.startPress} />
+    <Button text={'Stop'} onPress={this.stopRecording} />
+    <Button text={'Play'} onPress={this.playRecording} />
+    <Button text={'Save'} onPress={this.playRecording} />
 
-    <Text style={styles.button}>start</Text>
-    </TouchableHighlight>
-    <TouchableHighlight onPress={this.stopRecording}>
-
-    <Text style={styles.button}>stop</Text>
-    </TouchableHighlight>
-    <TouchableHighlight onPress={this.playRecording}>
-
-    <Text style={styles.button}>play</Text>
-    </TouchableHighlight>
-    </View>
-    <TouchableHighlight onPress={this.playRecording}>
-
-    <Text style={styles.button}>save</Text>
-    </TouchableHighlight>
     <TouchableHighlight onPress={this.onPress}>
 
     <Text style={styles.text}>Next--></Text>
     </TouchableHighlight>
     </View>
     </View>
-  },
+</Image>
+},
   onPress : function() {
   //log the user in
   this.props.navigator.push({name: 'training'});
@@ -109,7 +98,9 @@ playRecording2: function(){
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end'
+    width:null,
+    height:null
+
   },
   text: {
     flex: 1,
@@ -117,7 +108,7 @@ var styles = StyleSheet.create({
     fontFamily: 'copperplate',
     fontWeight: 'bold',
     fontSize: 20,
-    color: 'green',
+    color: 'white',
     marginTop: 100
   },
 imgwrapper2: {
@@ -134,10 +125,10 @@ button: {
   borderRadius: 5,
   padding: 5,
   marginTop: 10,
+  color: 'white'
 
 },
 buttonwrapper: {
- flexDirection: 'row',// takes 5/8ths of available space
 justifyContent: 'space-around',
 alignItems: 'center'
 }

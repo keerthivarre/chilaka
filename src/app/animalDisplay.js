@@ -21,7 +21,7 @@ module.exports = React.createClass({
 
       return(
       <TouchableHighlight key={this.props.index}  onPress={ () => this.playRecording(this.props.name)}>
-        <Image  style={{width:50, height: 90}}
+        <Image  style={styles.imgwrapper}
           source={images()[this.props.name]}>
           </Image>
 
@@ -49,11 +49,11 @@ var styles = StyleSheet.create({
     color: 'green',
     marginTop: 50,
   },
-//   imgwrapper: {
-//     flexDirection: 'row',// takes 5/8ths of available space
-//   justifyContent: 'space-around',
-//   alignItems: 'center',
+  imgwrapper: {
+    flexDirection: 'row',// takes 5/8ths of available space
+  justifyContent: 'space-around',
+  alignItems: 'center',
 //
 //
-// }
+}
 });

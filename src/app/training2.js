@@ -26,7 +26,7 @@ module.exports = React.createClass({
       // this.prepareRecordingPath(audioPath);
   },
   render: function(){
-    return <View style = {styles.container}>
+    return <Image source = {require('./img/forest.jpg')} style ={styles.container}>
     <TouchableHighlight onPress={this.gotoHomepage}>
 
     <Text style= {styles.back}>Back</Text>
@@ -74,7 +74,7 @@ module.exports = React.createClass({
 
 
 
-    </View>
+    </Image>
 
   },
   onPress : function() {
@@ -100,6 +100,9 @@ playRecording: function(animal){
 var styles = StyleSheet.create({
   container: {
     flex: 1,
+    width:null,
+    height: null,
+    justifyContent: 'center'
 
   },
   back:{

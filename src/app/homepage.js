@@ -64,7 +64,7 @@ this.props.navigator.push({name: 'training'});
 },
 gotoTest : function() {
 //log the user in
-this.props.navigator.push({name: 'test'});
+this.props.navigator.push({name: 'testSequence'});
 }
 
 
@@ -88,9 +88,8 @@ var styles = StyleSheet.create({
     color: 'white'
   },
   buttonwrapper: {
-  // takes 5/8ths of available space
- justifyContent: 'space-around',
- alignItems: 'center'
+    justifyContent: 'space-around',
+    alignItems: 'center'
   }
 
 });

@@ -12,7 +12,7 @@ var {
 } = require('react-native');
 
 var Button = require('../common/button');
-var audioPath = AudioUtils.DocumentDirectoryPath+'/right.aac';
+var audioPath = AudioUtils.DocumentDirectoryPath+'/elephant.aac';
 import {AudioRecorder,AudioPlayer, AudioUtils} from 'react-native-audio';
 // var { AudioPlayer } = require('react-native').NativeModules;
 
@@ -42,6 +42,7 @@ module.exports = React.createClass({
       <Text style ={styles.text}> CHOOSE YOUR LANGUAGE</Text>
       <View style = {styles.buttonwrapper}>
       <Button text={'Telugu'} onPress={this.onPress} />
+      <Button text={'swipe'} onPress={this.gotoSwipe} />
 
     <Button text={'Start'} onPress={this.startPress} />
     <Button text={'Stop'} onPress={this.stopRecording} />
@@ -53,6 +54,10 @@ module.exports = React.createClass({
   onPress : function() {
   //log the user in
   this.props.navigator.push({name: 'addvoice'});
+},
+gotoSwipe : function() {
+//log the user in
+this.props.navigator.push({name: 'swipe'});
 },
 // startRecording : function() {
 // //log the user in

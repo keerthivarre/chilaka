@@ -16,6 +16,10 @@ var training = require('./app/training.js');
 var training2 = require('./app/training2.js');
 var homepage = require('./app/homepage.js');
 var test = require('./app/test.js');
+var swiper  = require('./app/swiper.js');
+
+var testSequence = require('./app/testSequence.js');
+
 
 
 
@@ -31,7 +35,8 @@ var ROUTES = {
   training2: training2,
   homepage: homepage,
   test: test,
-
+  swiper: swiper,
+  testSequence:testSequence,
 
 };
 
