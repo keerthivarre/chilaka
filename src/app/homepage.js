@@ -15,6 +15,7 @@ var Button = require('../common/button');
 // const { BlurView, VibrancyView } = require('react-native-blur');
 var audioPath = AudioUtils.DocumentDirectoryPath+'/wrong.aac';
 import {AudioRecorder,AudioPlayer, AudioUtils} from 'react-native-audio';
+var SplashScreen = require('/Users/sdutta/keerthi-work/ReactApps/kidsapp2/src/app/splashScreen.js');
 // var { AudioPlayer } = require('react-native').NativeModules;
 
 
@@ -35,7 +36,8 @@ module.exports = React.createClass({
   // },
 
   render: function(){
-    return <Image source = {require('./img/forest.jpg')} style ={styles.container}>
+    return <SplashScreen>
+    <Image source = {require('./img/forest.jpg')} style ={styles.container}>
     <Text style ={styles.text}> LEARN ANIMALS</Text>
       <Text style ={styles.text}> CHOOSE YOUR LANGUAGE</Text>
       <View style = {styles.buttonwrapper}>
@@ -48,10 +50,11 @@ module.exports = React.createClass({
 
     </View>
     </Image>
+    </SplashScreen>
   },
   gotoStart: function() {
   //log the user in
-  this.props.navigator.push({name: 'start'});
+  this.props.navigator.push({name: 'recording'});
 },
 
   gotoAddVoice : function() {

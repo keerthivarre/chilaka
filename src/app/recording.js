@@ -11,6 +11,7 @@ var {
   Image
 } = require('react-native');
 
+var images = require('./imageLoader');
 var Button = require('../common/button');
 import {AudioRecorder,AudioPlayer, AudioUtils} from 'react-native-audio';
 // var { AudioPlayer } = require('react-native').NativeModules;
@@ -27,9 +28,17 @@ module.exports = React.createClass({
       AudioEncodingBitRate: 32000
     });
   },
+  getInitialState: function(){
+    let animal = this.props.name;
+    var index = this.props.index;
+    return {audioPath:AudioUtils.DocumentDirectoryPath+`/${animal}.aac`}
+  },
   startPress : function(){
-  
 
+
+
+    let audioPath = this.state.audioPath;
+    console.log(audioPath);
       this.prepareRecordingPath(audioPath);
       AudioRecorder.startRecording();
 
@@ -37,28 +46,29 @@ module.exports = React.createClass({
   },
 
   render: function(){
-    return <Image source = {require('./img/forest.jpg')} style ={styles.container}>
-    <Text style ={styles.text}> LEARN ANIMALS</Text>
-      <Text style ={styles.text}> CHOOSE YOUR LANGUAGE</Text>
-      <View style = {styles.buttonwrapper}>
-      <Button text={'Telugu'} onPress={this.onPress} />
-      <Button text={'swipe'} onPress={this.gotoSwipe} />
-
+    return <View>
+    <Image  style={styles.imgwrapper}
+      source={images()[this.props.name]}>
+      </Image>
+      <View>
     <Button text={'Start'} onPress={this.startPress} />
     <Button text={'Stop'} onPress={this.stopRecording} />
     <Button text={'Play'} onPress={this.playRecording} />
+    </View>
+    <Button text={'Next'} onPress={this.gotoNextAnimal} />
 
     </View>
-    </Image>
+
   },
   onPress : function() {
   //log the user in
   this.props.navigator.push({name: 'addvoice'});
 },
-gotoSwipe : function() {
-//log the user in
-this.props.navigator.push({name: 'swipe'});
+gotoNextAnimal: function() {
+
+
 },
+
 // startRecording : function() {
 // //log the user in
 // console.log("In playsound");
@@ -72,9 +82,9 @@ stopRecording: function(){
 },
 
 playRecording: function(){
-  // AudioRecorder.playRecording();
-  AudioPlayer.play(audioPath);
-  console.log(audioPath);
+
+  AudioPlayer.play(this.state.audioPath);
+
 }
 
 

@@ -6,6 +6,11 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "@remobile/react-native-cordova": "^1.1.0",
+    "@remobile/react-native-file-transfer": "^1.0.6",
+    "@remobile/react-native-splashscreen": "^1.0.4",
+    "@remobile/react-native-update": "^1.0.2",
+    "@remobile/react-native-zip": "^1.0.3",
     "react": "15.3.2",
     "react-autobind": "^1.0.6",
     "react-native": "0.34.1",
@@ -13,7 +18,9 @@
     "react-native-audio-manager": "^0.1.3",
     "react-native-audioplayer": "^0.2.0",
     "react-native-blur": "^1.0.1",
+    "react-native-fs": "^2.0.1-rc.2",
     "react-native-sound": "^0.8.3",
-    "react-native-swiper": "^1.5.2"
+    "react-native-swiper": "^1.5.2",
+    "react-timer-mixin": "^0.13.3"
   }
 }

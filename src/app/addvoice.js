@@ -5,60 +5,27 @@ var {
   AppRegistry,
   StyleSheet,
   TouchableHighlight,
+  AsyncStorage,
   Image
 } = require('react-native');
-var audioPath = AudioUtils.DocumentDirectoryPath+'/right.aac';
+
 var Button = require('../common/button');
+var Recording = require('./recording.js');
 
 
-import {AudioRecorder,AudioPlayer, AudioUtils} from 'react-native-audio';
 
-// var Button = require('../common/button');
 
 module.exports = React.createClass({
-  prepareRecordingPath(audioPath){
-    AudioRecorder.prepareRecordingAtPath(audioPath, {
-      SampleRate: 22050,
-      Channels: 1,
-      AudioQuality: "Low",
-      AudioEncoding: "aac",
-      AudioEncodingBitRate: 32000
-    });
-  },
-  startPress : function(){
 
-      this.prepareRecordingPath(audioPath);
-      AudioRecorder.startRecording();
-
-
-  },
+  getInitialState: function() {
+        return { };
+    },
   render: function(){
-    return <Image source = {require('./img/forest.jpg')} style ={styles.container}>
-    <TouchableHighlight onPress={this.gotoHomepage}>
 
-    <Text style={styles.text}>Back</Text>
-    </TouchableHighlight>
+      return <Recording name ='monkey'/>
 
-    <View style ={styles.imgwrapper2}>
 
-    <TouchableHighlight onPress={this.onPress}>
-      <Image
-        source={require('./img/elephant.jpg')}
-      />
-  </TouchableHighlight>
-    <View style = {styles.buttonwrapper}>
-    <Button text={'Start'} onPress={this.startPress} />
-    <Button text={'Stop'} onPress={this.stopRecording} />
-    <Button text={'Play'} onPress={this.playRecording} />
-    <Button text={'Save'} onPress={this.playRecording} />
 
-    <TouchableHighlight onPress={this.onPress}>
-
-    <Text style={styles.text}>Next--></Text>
-    </TouchableHighlight>
-    </View>
-    </View>
-</Image>
 },
   onPress : function() {
   //log the user in
@@ -78,6 +45,10 @@ playRecording: function(){
   AudioPlayer.play(audioPath);
   console.log(audioPath);
 },
+saveData: function(value) {
+        AsyncStorage.setItem("myKey", value);
+        this.setState({"myKey": value});
+    },
 
 playRecording1: function(){
   // AudioRecorder.playRecording();

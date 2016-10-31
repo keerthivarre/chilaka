@@ -4,6 +4,8 @@ import android.app.Application;
 import android.util.Log;
 
 import com.facebook.react.ReactApplication;
+import com.remobile.update.RCTUpdatePackage;
+import com.remobile.splashscreen.RCTSplashScreenPackage;
 import com.cmcewen.blurview.BlurViewPackage;
 import com.rnim.rn.audio.ReactNativeAudioPackage;
 import com.facebook.react.ReactInstanceManager;
@@ -26,6 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RCTUpdatePackage(),
+            new RCTSplashScreenPackage(),
             new BlurViewPackage(),
             new ReactNativeAudioPackage()
       );

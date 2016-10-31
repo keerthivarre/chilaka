@@ -17,6 +17,8 @@ var training2 = require('./app/training2.js');
 var homepage = require('./app/homepage.js');
 var test = require('./app/test.js');
 var swiper  = require('./app/swiper.js');
+var splash  = require('./app/splashScreen.js');
+var recording = require('./app/recording.js');
 
 var testSequence = require('./app/testSequence.js');
 
@@ -37,6 +39,8 @@ var ROUTES = {
   test: test,
   swiper: swiper,
   testSequence:testSequence,
+  splash: splash,
+  recording: recording,
 
 };
 
